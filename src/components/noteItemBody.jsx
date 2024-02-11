@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function NoteItemBody({ id, title, body, createdAt, archived }) {
@@ -25,5 +26,13 @@ function NoteItemBody({ id, title, body, createdAt, archived }) {
     </div>
   );
 }
+
+NoteItemBody.propTypes = {
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)])
+    .isRequired,
+  archived: PropTypes.bool.isRequired,
+};
 
 export default NoteItemBody;

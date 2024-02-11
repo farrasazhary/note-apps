@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import { getNote } from "../utils/data";
 
@@ -27,5 +29,7 @@ function DetailPage() {
     </div>
   );
 }
+
+DetailPage.propTypes = {};
 
 export default DetailPage;

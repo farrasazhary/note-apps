@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -7,7 +8,6 @@ class NoteInput extends React.Component {
 
     // Inisialisasi state
     this.state = {
-
       title: "",
       body: "",
       createdAt: "",
@@ -82,5 +82,9 @@ class NoteInput extends React.Component {
     );
   }
 }
+
+NoteInput.propTypes = {
+  addNote: PropTypes.func.isRequired,
+};
 
 export default NoteInput;

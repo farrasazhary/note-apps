@@ -10,7 +10,7 @@ function Navigation() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/add">Add Note</Link>
+          <Link to="/notes/new">Add Note</Link>
         </li>
       </ul>
     </nav>

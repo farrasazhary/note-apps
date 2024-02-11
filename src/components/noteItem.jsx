@@ -8,6 +8,7 @@ function NoteItem({ title, body, createdAt, id, onDelete, archived }) {
   return (
     <div className="contact-item">
       <NoteItemBody
+        id={id}
         title={title}
         body={body}
         createdAt={createdAt}

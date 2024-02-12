@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useSearchParams } from "react-router-dom";
 import NoteList from "../components/noteList";
 import SearchBar from "../components/searchBar";
-import { deleteNote, getActiveNotes, unarchiveNote } from "../utils/data";
+import { deleteNote, getActiveNotes, archiveNote } from "../utils/data";
 
 function HomePageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -58,7 +58,7 @@ class HomePage extends React.Component {
   }
 
   onArchiveHandler(id) {
-    unarchiveNote(id);
+    archiveNote(id);
 
     this.setState(() => {
       return {

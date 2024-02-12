@@ -12,22 +12,26 @@ function NoteItemBody({ id, title, body, createdAt, archived }) {
     year: "numeric",
   });
 
-  const archivedValue = archived !== undefined ? archived : false;
+  // const archivedValue = archived !== undefined ? archived : false;
   return (
     <div className="contact-item__body">
-      <Link to={`/notes/${id}`} className="contact-item__title">
+      <Link
+        to={`/notes/${id}`}
+        className="text-3xl font-bold text-black hover:text-orange-600"
+      >
         <h3>{title}</h3>
       </Link>
       <p className="contact-item__createdAt">{formattedDate}</p>
       <p className="contact-item__username">{body}</p>
-      <p className="contact-item__archived">
+      {/* <p className="contact-item__archived">
         Archived: {archivedValue.toString()}
-      </p>
+      </p> */}
     </div>
   );
 }
 
 NoteItemBody.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   createdAt: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)])

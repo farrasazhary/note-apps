@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { useSearchParams } from "react-router-dom";
 import NoteList from "../components/noteList";
 import SearchBar from "../components/searchBar";
-import { deleteNote, getActiveNotes, unarchiveNote } from "../utils/data";
+import { deleteNote, getArchivedNotes } from "../utils/data";
 
-function HomePageWrapper() {
+function ArchivedPageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword");
   function changeSearchParams(keyword) {
@@ -13,11 +13,11 @@ function HomePageWrapper() {
   }
 
   return (
-    <HomePage defaultKeyword={keyword} keywordChange={changeSearchParams} />
+    <ArchivePage defaultKeyword={keyword} keywordChange={changeSearchParams} />
   );
 }
 
-class HomePage extends React.Component {
+class ArchivePage extends React.Component {
   static propTypes = {
     defaultKeyword: PropTypes.string,
     keywordChange: PropTypes.func.isRequired,
@@ -27,14 +27,12 @@ class HomePage extends React.Component {
     super(props);
 
     this.state = {
-      notes: getActiveNotes(),
+      notes: getArchivedNotes(),
       keyword: props.defaultKeyword || "",
-      archived: getActiveNotes(),
     };
 
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
-    this.onArchiveHandler = this.onArchiveHandler.bind(this);
   }
 
   onDeleteHandler(id) {
@@ -42,7 +40,7 @@ class HomePage extends React.Component {
 
     this.setState(() => {
       return {
-        notes: getActiveNotes(),
+        notes: getArchivedNotes(),
       };
     });
   }
@@ -55,18 +53,6 @@ class HomePage extends React.Component {
     });
 
     this.props.keywordChange(keyword);
-  }
-
-  onArchiveHandler(id) {
-    unarchiveNote(id);
-
-    this.setState(() => {
-      return {
-        notes: getActiveNotes(),
-      };
-    });
-
-    alert(`Catatan dengan ID ${id} berhasil diarsipkan.`);
   }
 
   render() {
@@ -82,21 +68,19 @@ class HomePage extends React.Component {
     return (
       <section>
         <div className="flex-col">
-          <h2 className="text-3xl font-bold text-orange-600">Daftar Notes</h2>
+          <h2 className="text-3xl font-bold text-orange-600">
+            Daftar Archived Notes
+          </h2>
           <SearchBar
             keyword={this.state.keyword}
             keywordChange={this.onKeywordChangeHandler}
           />
         </div>
 
-        <NoteList
-          notes={notes}
-          onDelete={this.onDeleteHandler}
-          archived={this.onArchiveHandler}
-        />
+        <NoteList notes={notes} onDelete={this.onDeleteHandler} />
       </section>
     );
   }
 }
 
-export default HomePageWrapper;
+export default ArchivedPageWrapper;

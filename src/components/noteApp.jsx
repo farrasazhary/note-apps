@@ -5,12 +5,14 @@ import Navigation from "./navigation";
 import HomePage from "../pages/HomePage";
 import AddPage from "../pages/AddPage";
 import DetailPage from "../pages/DetailPage";
+import ArchivePage from "../pages/ArchivePage";
+import NotFoundPage from "../pages/NotFoundPage";
 
 function noteApp() {
   return (
     <div className="contact-app">
-      <header className="contact-app__header">
-        <h1>Notes App</h1>
+      <header className="flex justify-between">
+        <h1 className="text-3xl font-bold text-orange-600">Notes App</h1>
         <Navigation />
       </header>
       <main>
@@ -18,6 +20,8 @@ function noteApp() {
           <Route path="/" element={<HomePage />} />
           <Route path="/notes/new" element={<AddPage />} />
           <Route path="/notes/:id" element={<DetailPage />} />
+          <Route path="/notes/archive" element={<ArchivePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
     </div>

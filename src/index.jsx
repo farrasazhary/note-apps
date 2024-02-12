@@ -7,6 +7,7 @@ import NoteApp from "./components/noteApp";
 
 //style
 import "./styles/style.css";
+import "./index.css";
 
 const root = createRoot(document.getElementById("root"));
 root.render(

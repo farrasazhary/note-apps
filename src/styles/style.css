@@ -21,7 +21,7 @@ img {
 
 .contact-app h1 {
   font-weight: normal;
-  font-size: 48px;
+  font-size: 35px;
   margin-bottom: 32px;
 }
 
@@ -92,4 +92,9 @@ img {
   width: 100%;
   padding: 8px;
   font-family: "Inter", sans-serif;
+}
+
+.not-found h1 {
+  font-size: 300px;
+  text-align: center;
 }

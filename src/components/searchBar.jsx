@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function SearchBar({ keyword, keywordChange }) {
   return (
     <input
-      className="search-bar"
+      className="search-bar p-2 rounded"
       type="text"
       placeholder="Cari berdasarkan judul"
       value={keyword}

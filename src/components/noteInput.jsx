@@ -77,7 +77,12 @@ class NoteInput extends React.Component {
           onChange={this.onBodyChangeEventHandler}
         />
 
-        <button type="submit">Tambah</button>
+        <button
+          className="bg-orange-600 rounded-md font-medium text-white"
+          type="submit"
+        >
+          Tambah
+        </button>
       </form>
     );
   }

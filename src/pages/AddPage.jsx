@@ -13,7 +13,7 @@ function AddPage() {
 
   return (
     <section>
-      <h2>Tambah Catatan</h2>
+      <h2 className="text-3xl font-bold text-black">Tambah Catatan</h2>
       <NoteInput addNote={onAddNoteHandler} />
     </section>
   );

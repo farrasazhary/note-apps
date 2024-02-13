@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useSearchParams } from "react-router-dom";
 import NoteList from "../components/noteList";
 import SearchBar from "../components/searchBar";
-import { deleteNote, getArchivedNotes } from "../utils/data";
+import { deleteNote, getArchivedNotes, unarchiveNote } from "../utils/data";
 
 function ArchivedPageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -33,6 +33,7 @@ class ArchivePage extends React.Component {
 
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
+    this.onUnarchiveHandler = this.onUnarchiveHandler.bind(this);
   }
 
   onDeleteHandler(id) {
@@ -53,6 +54,16 @@ class ArchivePage extends React.Component {
     });
 
     this.props.keywordChange(keyword);
+  }
+
+  onUnarchiveHandler(id) {
+    unarchiveNote(id);
+
+    this.setState(() => {
+      return {
+        notes: getArchivedNotes(),
+      }
+    })
   }
 
   render() {
@@ -77,7 +88,7 @@ class ArchivePage extends React.Component {
           />
         </div>
 
-        <NoteList notes={notes} onDelete={this.onDeleteHandler} />
+        <NoteList notes={notes} onDelete={this.onDeleteHandler} onArchive={this.onUnarchiveHandler} />
       </section>
     );
   }

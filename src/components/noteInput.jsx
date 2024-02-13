@@ -12,6 +12,7 @@ class NoteInput extends React.Component {
       body: "",
       createdAt: "",
       archived: false,
+      charLimit: 50,
     };
 
     this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
@@ -21,10 +22,19 @@ class NoteInput extends React.Component {
   }
 
   onTitleChangeEventHandler(event) {
-    this.setState((prevState) => ({
-      ...prevState,
-      title: event.target.value,
-    }));
+    // this.setState((prevState) => ({
+    //   ...prevState,
+    //   title: event.target.value,
+    // }));
+
+    if (this.state.charLimit >= 0 && event.target.value.length <= 50) {
+      this.setState(() => {
+        return {
+          title: event.target.value,
+          charLimit: 50 - event.target.value.length,
+        };
+      });
+    }
   }
 
   onBodyChangeEventHandler(event) {
@@ -64,6 +74,7 @@ class NoteInput extends React.Component {
         className="contact-input"
         onSubmit={this.onSubmitChangeEventHandler}
       >
+        <p className="text-sm flex justify-end">Sisa karakter : {this.state.charLimit}</p>
         <input
           type="text"
           placeholder="Judul Catatan"

@@ -7,16 +7,14 @@ import AddPage from "../pages/AddPage";
 import DetailPage from "../pages/DetailPage";
 import ArchivePage from "../pages/ArchivePage";
 import NotFoundPage from "../pages/NotFoundPage";
-import { Link } from "react-router-dom";
 
 function noteApp() {
   return (
     <div className="contact-app">
-      <header className="flex justify-between">
-        <Link to="/"><h1 className="text-3xl font-bold text-orange-600">Notes App</h1></Link>
-        <Navigation />
+      <header className="">
+        <Navigation className="mb-5" />
       </header>
-      <main>
+      <main className="p-5">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/notes/new" element={<AddPage />} />

@@ -13,10 +13,14 @@ img {
   width: 100%;
 }
 
-.contact-app {
+header {
+  background-color: rgb(231, 231, 231);
+}
+
+/* .contact-app {
   max-width: 800px;
   margin: 0 auto;
-}
+} */
 
 .contact-app h1 {
   font-weight: normal;

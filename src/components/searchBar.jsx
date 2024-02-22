@@ -2,16 +2,23 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import PropTypes from "prop-types";
+import { LocaleConsumer } from "../contexts/LocaleContext";
 
 function SearchBar({ keyword, keywordChange }) {
   return (
-    <input
-      className="search-bar p-2 rounded"
-      type="text"
-      placeholder="Cari berdasarkan judul"
-      value={keyword}
-      onChange={(event) => keywordChange(event.target.value)}
-    />
+    <LocaleConsumer>
+      {({ locale }) => {
+        return (
+          <input
+            className="search-bar p-2 rounded"
+            type="text"
+            placeholder={locale === "id" ? "Cari Catatan" : "Search Notes"}
+            value={keyword}
+            onChange={(event) => keywordChange(event.target.value)}
+          />
+        );
+      }}
+    </LocaleConsumer>
   );
 }
 

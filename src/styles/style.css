@@ -1,3 +1,21 @@
+:root {
+  --font-color: black;
+  --background-color-body: whitesmoke;
+  --button: orangered;
+  --navbar: rgb(231, 231, 231);
+  --font-color-white: white;
+  --border: black;
+}
+
+[data-theme="dark"] {
+  --font-color: white;
+  --background-color-body: rgb(59, 59, 59);
+  --button: orangered;
+  --navbar: rgb(95, 95, 95);
+  --font-color-white: black;
+  --border: white;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -6,7 +24,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: whitesmoke;
+  background-color: var(--background-color-body);
 }
 
 img {
@@ -14,25 +32,19 @@ img {
 }
 
 header {
-  background-color: rgb(231, 231, 231);
+  background-color: var(--navbar);
 }
-
-/* .contact-app {
-  max-width: 800px;
-  margin: 0 auto;
-} */
 
 .contact-app h1 {
   font-weight: normal;
   font-size: 35px;
-  /* margin-bottom: 32px; */
 }
 
 .contact-item {
   display: flex;
   flex-direction: column;
   margin: 24px 0;
-  border: 1px solid black;
+  border: 1px solid var(--border);
   padding: 16px;
   border-radius: 8px;
 }
@@ -59,7 +71,7 @@ header {
 .contact-item__delete {
   padding: 8px;
   font-size: 18px;
-  background-color: orangered;
+  background-color: var(--button);
   color: white;
   border: 0;
   border-radius: 4px;
@@ -67,12 +79,25 @@ header {
   margin-top: 20px;
 }
 
+.contact-item h1 {
+  color: var(--font-color);
+}
+.contact-item h3 {
+  color: var(--font-color);
+}
+.contact-item p {
+  color: var(--font-color);
+}
+
 .contact-input {
-  /* border: 1px dashed black; */
   padding: 16px;
   margin: 14px 0;
   border-radius: 8px;
   margin-bottom: 32px;
+}
+
+.contact-input p {
+  color: var(--font-color);
 }
 
 .contact-input input {
@@ -100,6 +125,11 @@ header {
 .not-found h1 {
   font-size: 300px;
   text-align: center;
+  color: var(--font-color);
+}
+
+.not-found p {
+  color: var(--font-color);
 }
 
 .navigation {
@@ -107,8 +137,50 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  color: var(--font-color);
 }
 
 .navigation .bar {
   display: none;
+}
+
+section h2 {
+  color: var(--font-color);
+}
+
+.note-list p {
+  color: var(--font-color);
+}
+
+.note-body h2 {
+  color: var(--font-color);
+}
+.note-body p {
+  color: var(--font-color);
+}
+
+.register-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--font-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.register-page .register button {
+  color: white;
+}
+
+.login-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--font-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.login-page .login button {
+  color: white;
 }

@@ -74,18 +74,22 @@ class NoteInput extends React.Component {
         className="contact-input"
         onSubmit={this.onSubmitChangeEventHandler}
       >
-        <p className="text-sm flex justify-end">Sisa karakter : {this.state.charLimit}</p>
+        <p className="text-sm flex justify-end">
+          Sisa karakter : {this.state.charLimit}
+        </p>
         <input
           type="text"
           placeholder="Judul Catatan"
           value={this.state.title}
           onChange={this.onTitleChangeEventHandler}
+          className="rounded-md"
         />
         <textarea
           type="text"
           placeholder="Tuliskan catatanmu di sini"
           value={this.state.body}
           onChange={this.onBodyChangeEventHandler}
+          className="rounded-md"
         />
 
         <button

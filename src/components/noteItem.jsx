@@ -6,7 +6,15 @@ import NoteItemBody from "./noteItemBody";
 import ArchiveButton from "./archiveButton";
 import DeleteButton from "./deleteButton";
 
-function NoteItem({ title, body, createdAt, id, onDelete,  onArchive, archived }) {
+function NoteItem({
+  title,
+  body,
+  createdAt,
+  id,
+  onDelete,
+  onArchive,
+  archived,
+}) {
   return (
     <div className="contact-item shadow-2xl border-transparent">
       <NoteItemBody
